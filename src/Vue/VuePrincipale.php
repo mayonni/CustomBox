@@ -2,6 +2,8 @@
 
 namespace custumbox\Vue;
 
+
+use \custumbox\controller\Authentication;
 use \Slim\Container;
 
   define('SCRIPT_ROOT', 'http://localhost/CrazyCharlyDay/CustomBox/Ressources');
@@ -54,6 +56,15 @@ class VuePrincipale{
 
     public function render($selecteur,$rq)
     {
+        if(Authentication::isConnected()){
+            $nom = $_SESSION['user']['name'];
+            $connect =  "nom Compte : $nom";
+        } else {
+            $connect = "<button class='btn btn-outline-dark' type='submit'>
+            Connexion / Inscription
+        </button>";
+           break;
+      }
          switch ($selecteur) {
               case 1:
               {
@@ -96,9 +107,7 @@ class VuePrincipale{
                         <li class='nav-item'><a class='nav-link active' href='#custom'>CustomBox</a></li>
                         </ul>
                         <form class='d-flex'>
-                            <button class='btn btn-outline-dark' type='submit'>
-                                Connexion / Inscription
-                            </button>
+                            $connect
                             <button class="btn btn-outline-dark" type="submit">
                                 <i class="bi-cart-fill me-1"></i>
                                 Ma box
