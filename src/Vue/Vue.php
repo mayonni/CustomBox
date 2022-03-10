@@ -1,8 +1,8 @@
 <?php
 
-namespace custumbox\src\Vue;
+namespace custumbox\Vue;
 
-use custumbox\src\controller\authentication;
+use custumbox\controller\authentication;
 
 class Vue
 {

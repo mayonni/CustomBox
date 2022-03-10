@@ -1,8 +1,8 @@
 <?php
 
-namespace custumbox\src\controller;
+namespace custumbox\controller;
 
-use custumbox\src\models\Utilisateur;
+use custumbox\models\Utilisateur;
 use \Exception;
 
 class Authentication {

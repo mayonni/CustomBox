@@ -1,9 +1,9 @@
 <?php
 
-namespace custumbox\src\controller;
+namespace custumbox\controller;
 
-use custumbox\src\Vue\VueConnexion;
-use custumbox\src\models\Utilisateur;
+use custumbox\Vue\VueConnexion;
+use custumbox\models\Utilisateur;
 use \Exception;
 
 class ControleurConnexion {
