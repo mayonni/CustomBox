@@ -33,12 +33,12 @@ class VueConnexion
                     <h3> Se connecter </h3>
                     <div class="row">
                         <div class="col">
-                            <label for="connecnomListe">Pseudo</label>
-                            <input id="connecnomListe" type="text" name="pseudo" class="form-control" placeholder="Pseudonyme">
+                            <label for="connecnomListe">Nom</label>
+                            <input id="connecnomListe" type="text" name="name" class="form-control" placeholder="Nom">
                         </div>
                         <div class="col">
                             <label for="connecmotDePasse">Mot de Passe</label>
-                            <input id="connecmotDePasse" type="password" name="passw" class="form-control" placeholder="Mot De Passe">
+                            <input id="connecmotDePasse" type="password" name="password" class="form-control" placeholder="Mot De Passe">
                         </div>
                     </div>
                     <hr>
@@ -54,12 +54,24 @@ class VueConnexion
                     <h3> Créer un compte </h3>
                     <div class="row">
                         <div class="col">
-                            <label for="nomListe">Pseudo</label>
-                            <input id="nomListe" type="text" name="pseudo" class="form-control" placeholder="Pseudonyme">
+                            <label for="nomListe">Nom</label>
+                            <input id="nomListe" type="text" name="name" class="form-control" placeholder="Nom">
+                        </div>
+                        <div class="col">
+                            <label for="nomListe">Prénom</label>
+                            <input id="nomListe" type="text" name="surname" class="form-control" placeholder="Prénom">
                         </div>
                         <div class="col">
                             <label for="motDePasse">Mot de Passe</label>
-                            <input id="motDePasse" type="password" name="passw" class="form-control" placeholder="Mot De Passe">
+                            <input id="motDePasse" type="password" name="password" class="form-control" placeholder="Mot De Passe">
+                        </div>
+                        <div class="col">
+                            <label for="nomListe">Mail</label>
+                            <input id="nomListe" type="text" name="mail" class="form-control" placeholder="Mail">
+                        </div>
+                        <div class="col">
+                            <label for="nomListe">Numéro de Téléphone</label>
+                            <input id="nomListe" type="text" name="phone" class="form-control" placeholder="Téléphone">
                         </div>
                     </div>
                     <hr>
@@ -87,7 +99,7 @@ END;
             <hr>
             <div class="container">
                 <div class="alert alert-warning" role="alert">
-                    Il semblerait que votre mot de passe ou votre pseudo comporte une erreur. Veuillez les vérifier.
+                    Il semblerait que l'un des éléments comporte une erreur. Veuillez les vérifier.
                 </div>
             </div>
 END;
@@ -96,7 +108,7 @@ END;
             <hr>
             <div class="container">
                 <div class="alert alert-warning" role="alert">
-                    Il semblerait que votre mot de passe ne soit pas assez long ! Il doit faire plus de 12 caractères.
+                    Il semblerait que votre mot de passe ne soit pas assez long ! Il doit faire plus de 10 caractères.
                 </div>
             </div>
 END;

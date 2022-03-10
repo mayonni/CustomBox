@@ -12,7 +12,7 @@ class VuePrincipale{
 
     public array $tab;
     public Container $container;
-
+    public string  $fdg;
 
     public function __construct(array $tab, Container $container)
     {
@@ -57,25 +57,36 @@ class VuePrincipale{
 
     public function render($selecteur,$rq)
     {
-        if(Authentification::isConnected()){
-            $nom = $_SESSION['user']['name'];
-            $connect =  "nom Compte : $nom";
-        } else {
-            $connect = "<button class='btn btn-outline-dark' type='submit'>
-            Connexion / Inscription
-        </button>";
-      }
+
          switch ($selecteur) {
               case 1:
               {
                    $content = $this->afficherProduits($rq);
+                  $path = $rq->getUri()->getBasePath();
+                  if(Authentification::isConnected()){
+                      $nom = $_SESSION['user']['name'];
+                      $connect =  <<<END
+                      <a class="nav-link" href="$path/user">$nom</a> <a class="nav-link" href="$path/deco">Deconnexion</a>
+ END;
+                    if(Authentification::isAdmin()){
+                        $vueAdmin = <<<END
+<p> vue admin </p>
+END;
+                    } else {
+                        $vueAdmin = "";
+                    }
+                  } else {
+                      $connect = <<<END
+ <a class='btn btn-outline-dark' href="$path/connexion"> Connexion / Inscription </a>
+ END;
+ $vueAdmin = "";
+                  }
                    break;
               }
 
          }
 
     $root = SCRIPT_ROOT;
-
 
     $html = <<<END
 <!DOCTYPE html>
@@ -97,16 +108,14 @@ class VuePrincipale{
             <!-- Navigation-->
             <nav class='navbar navbar-expand-lg navbar-light bg-light fixed-top'>
                 <div class='container px-4 px-lg-5'>
-
-                    <a class='navbar-brand' href='#!'>L'Atelier</a>
-
+                    <a class='navbar-brand'>L'Atelier</a>
                     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'><span class='navbar-toggler-icon'></span></button>
                     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                         <ul class='navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4'>
                         <li class='nav-item'><a class='nav-link active' href='#accueil'>Accueil</a></li>
                         <li class='nav-item'><a class='nav-link active' href='#atelier'>Ateliers</a></li>
+                         <li class='nav-item'><a class='nav-link active' href='#custom'>CustomBox</a></li>
                         <li class='nav-item'><a class='nav-link active' href='#prods'>Produits</a></li>
-                        <li class='nav-item'><a class='nav-link active' href='#custom'>CustomBox</a></li>
                         </ul>
                         <form class='d-flex'>
                             <div>
@@ -157,7 +166,45 @@ class VuePrincipale{
                         <div class='text-center text-dark'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #47ACA4'>Ateliers</h1>
                             <p class='lead fw-normal text-black-50 mb-0'>L'association propose de nombreux ateliers pour venir en aide <br>aux personnes en situation de précarité ou d'isolement.</p>
-                            <br><button type='button' class='btn btn-dark'>Découvrez nos ateliers</button>
+                            <br><button type='button' id='ate' class='btn btn-dark'>Découvrez nos ateliers</button>
+                            <section class='bg-white py-5' style='display:none' id='toggle'>
+    <div class='container px-4 my-5'>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/1.png">
+            <h1>Beauté inclusive</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Création de soins naturels.
+                Développement de l'estime de soi.
+                Confiance et bien-être.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/2.png">
+            <h1>Bijoux recyclés</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Création de bijou fait-main.
+                Sensibilisation à la surconsommation.
+                Créations personnalisées.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/3.png">
+            <h1>Décoration</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Réutilisation de matériaux.
+                Destinés à être jetés.
+                Créations uniques.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/4.png">
+            <h1>Produits ménagers</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Création de produits naturels.
+                Sensibilisation aux produits nocifs et sur-emballés.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/5.png">
+            <h1>Upcycling</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Développement durable.
+                Sensibilisation au gaspillage textile.
+                Créativité.</p>
+        </div>
+    </div>
+</section>
                         </div>
                     </div>
                 </section>
@@ -167,8 +214,8 @@ class VuePrincipale{
                     <div class='container px-4 px-lg-5 my-5'>
                         <div class='text-center text-white'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>CustomBox</h1>
-                            <p class='lead fw-normal text-white-50 mb-0'>Composez votre box personnalisée avec nos produits <br>pour vous ou pour offrir.</p>
-                            <br><button type='button' class='btn btn-light'>Créez votre box!</button>
+                            <p class='lead fw-normal text-white-50 mb-0'>Créez votre box personnalisée avec nos produits <br>pour vous ou pour offrir.</p>
+                            <br><button type='button' class='btn btn-light' onclick="window.location.href='$path/#prods';">Composez votre box!</button>
                         </div>
                     </div>
                 </section>
@@ -203,6 +250,7 @@ class VuePrincipale{
         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
         <!-- Core theme JS-->
         <script src='$root/js/scripts.js'></script>
+        <script src='$root/js/toggledisplay.js'></script>
     </body>
 </html>
 

@@ -3,7 +3,9 @@
 namespace custumbox\controller;
 
 use custumbox\Vue\VueConnexion;
+use custumbox\Vue\VueUtilisateur;
 use custumbox\models\Utilisateur;
+use custumbox\controller\Authentification;
 use \Exception;
 
 class ControleurConnexion {
@@ -16,21 +18,20 @@ class ControleurConnexion {
      */
     static function seConnecter($rq, $rs, $args) {
         $parsed = $rq->getParsedBody();
-        $pseudo = filter_var($parsed['pseudo'], FILTER_SANITIZE_STRING);
-        $passw = filter_var($parsed['passw'], FILTER_SANITIZE_STRING);
-
+        $name = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
+        $password = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
         // On vérifie si il n'a pas laissé une case vide
-        if ((!$pseudo || !$passw) || $pseudo == '' || $passw == '') {
+        if ((!$name || !$password) || $name == '' || $password == '') {
             $vueConnexion = new VueConnexion($rq, 1);
         }
 
         // On vérifie si le mot de passe est assez long
-        else if (strlen($passw) < 12) {
+        else if (strlen($password) < 10) {
             $vueConnexion = new VueConnexion($rq, 2);
         }
         // Cas où les 2 étapes sont passées
         else {
-            $u = Utilisateur::where('pseudo', $pseudo)->first();
+            $u = Utilisateur::where('name', $name)->first();
             // On vérifie que l'utilisateur existe
             if (!isset($u)) {
                 $vueConnexion = new VueConnexion($rq, 4);
@@ -38,7 +39,7 @@ class ControleurConnexion {
             else {
                 // On teste le mot de passe
                 try {
-                    Authentication::authenticate($u, $passw);
+                    Authentification::authenticate($u, $password);
                     // Si l'authentification a marché, on redirige l'utilisateur vers l'index
                     $path = $rq->getUri()->getBasePath();
                     $rs = $rs->withRedirect($path);
@@ -55,7 +56,7 @@ class ControleurConnexion {
 
     static function seDeconnecter($rq, $rs, $args) {
         // On libère la variable de session
-        Authentication::freeProfile();
+        Authentification::freeProfile();
         
         // On redirige l'utilisateur vers l'index
         $path = $rq->getUri()->getBasePath();
@@ -71,25 +72,28 @@ class ControleurConnexion {
      */
     static function creerCompte($rq, $rs, $args) {
         $parsed = $rq->getParsedBody();
-        $pseudo = filter_var($parsed['pseudo'], FILTER_SANITIZE_STRING);
-        $passw = filter_var($parsed['passw'], FILTER_SANITIZE_STRING);
+        $name = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
+        $password = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
+        $surname = filter_var($parsed['surname'], FILTER_SANITIZE_STRING);
+        $mail = filter_var($parsed['mail'], FILTER_SANITIZE_STRING);
+        $phone = filter_var($parsed['phone'], FILTER_SANITIZE_STRING);
         // On vérifie si il n'a pas laissé une case vide
-        if ((!$pseudo || !$passw) || $pseudo == '' || $passw == '') {
+        if ((!$name || !$password) || $name == '' || $password == '' || $surname == '' || $mail == '' || $phone == '') {
             $vueConnexion = new VueConnexion($rq, 1);
         }
         // On vérifie si le mot de passe est assez long
-        else if (strlen($passw) < 12) {
+        else if (strlen($password) < 10) {
             $vueConnexion = new VueConnexion($rq, 2);
         }
         else {
-            $u = Utilisateur::where('pseudo', $pseudo)->first();
+            $u = Utilisateur::where('name', $name)->first();
             // On vérifie si l'utilisateur existe pour ne pas créer un doublon
             if (isset($u)) {
                 $vueConnexion = new VueConnexion($rq, 5);
             }
             else {
                 // On sauvegarde l'utilisateur
-                Authentication::createUser($pseudo, $passw);
+                Authentification::createUser($name, $password, $surname, $mail, $phone);
                 $vueConnexion = new VueConnexion($rq);
             }
         }
@@ -121,6 +125,12 @@ class ControleurConnexion {
             if ($args['type'] == 'connex') return ControleurConnexion::seConnecter($rq, $rs, $args);
             else if ($args['type'] == 'crea') return ControleurConnexion::creerCompte($rq, $rs, $args);
         }
+    }
+
+    static function afficherUtilisateur($rq, $rs, $args) {
+        $vueUtilisateur = new VueUtilisateur($rq);
+        $rs->getBody()->write($vueUtilisateur->render());
+        return $rs;
     }
 
 }
