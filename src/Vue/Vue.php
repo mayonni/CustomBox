@@ -2,7 +2,7 @@
 
 namespace custumbox\Vue;
 
-use custumbox\controller\authentification;
+use custumbox\controller\Authentification;
 
 class Vue
 {
