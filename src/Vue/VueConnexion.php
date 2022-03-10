@@ -96,7 +96,7 @@ END;
             <hr>
             <div class="container">
                 <div class="alert alert-warning" role="alert">
-                    Il semblerait que votre mot de passe ne soit pas assez long ! Il doit faire plus de 12 caractères.
+                    Il semblerait que votre mot de passe ne soit pas assez long ! Il doit faire plus de 10 caractères.
                 </div>
             </div>
 END;

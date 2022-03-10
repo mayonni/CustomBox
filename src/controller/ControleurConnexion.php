@@ -25,7 +25,7 @@ class ControleurConnexion {
         }
 
         // On vérifie si le mot de passe est assez long
-        else if (strlen($passw) < 12) {
+        else if (strlen($passw) < 10) {
             $vueConnexion = new VueConnexion($rq, 2);
         }
         // Cas où les 2 étapes sont passées

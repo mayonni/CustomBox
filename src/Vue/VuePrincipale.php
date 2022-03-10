@@ -57,9 +57,16 @@ class VuePrincipale{
               case 1:
               {
                    $content = $this->afficherProduits($rq);
-                   break;
-              }
-
+                   $connect  = function(){
+                    if (Authentication::isConnected()){
+                        $nom = $_SESSION['user']['name'];
+                        return "nom Compte : $nom";
+                    } else {
+                        return "<button class='btn btn-outline-dark' type='submit'>
+                        Connexion / Inscription
+                    </button>";
+                    }
+                   };
          }
 
     $root = SCRIPT_ROOT;
@@ -95,9 +102,7 @@ class VuePrincipale{
                         <li class='nav-item'><a class='nav-link active' href='#custom'>CustomBox</a></li>
                         </ul>
                         <form class='d-flex'>
-                            <button class='btn btn-outline-dark' type='submit'>
-                                Connexion / Inscription
-                            </button>
+                            $connect
                             <button class="btn btn-outline-dark" type="submit">
                                 <i class="bi-cart-fill me-1"></i>
                                 Ma box
