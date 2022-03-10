@@ -2,6 +2,7 @@
 
 namespace custumbox\Vue;
 
+
 class VueConnexion
 {
     private $error;
@@ -24,8 +25,25 @@ class VueConnexion
 
     public function creerVueConnexion()
     {
+        $root = SCRIPT_ROOT;
         $host = $this->rq->getUri()->getBasePath();
         $res = <<<END
+        <!DOCTYPE html>
+<html lang='fr'>
+    <head>
+        <meta charset='utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+        <meta name='description' content='' />
+        <meta name='author' content='' />
+        <title>CustomBox</title>
+        <!-- Favicon-->
+        <link rel='icon' type='image/x-icon' href='assets/favicon.ico' />
+        <!-- Bootstrap icons-->
+        <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet' />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href='$root/Css/styles.css' rel='stylesheet' />
+     </head>
+        <body>
     <div class="container">
         <div class="row">
             <div class="col-6 p-3">
@@ -44,7 +62,7 @@ class VueConnexion
                     <hr>
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                            <button class="btn btn-primary btn-lg" type="submit">Se connecter</button>
+                            <button class="btn btn-primary btn-lg btn-outline-dark" type="submit">Se connecter</button>
                         </div>        
                     </div>
                 </form>
@@ -77,13 +95,18 @@ class VueConnexion
                     <hr>
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                            <button class="btn btn-primary btn-lg" type="submit">Créer</button>
+                            <button class="btn btn-primary btn-lg btn-outline-dark" type="submit">Créer</button>
                         </div>        
                     </div>
                 </form>
             </div>
         </div>
     </div>    
+    <footer class='py-5 bg-dark'>
+            <div class='container'><p class='m-0 text-center text-white'>IUT CHARLEMAGNE <br>&copy; Chevaleyre - Pruliere - Maion - Leblanc - Jarosz</p></div>
+        </footer>
+    </body>
+</html>
 END;
 
         return $res;
