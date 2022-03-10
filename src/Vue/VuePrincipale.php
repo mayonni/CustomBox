@@ -89,10 +89,10 @@ class VuePrincipale{
                     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'><span class='navbar-toggler-icon'></span></button>
                     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                         <ul class='navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4'>
-                            <li class='nav-item'><a class='nav-link active' aria-current='page' href='#!'>Accueil</a></li>
-                            <li class='nav-item'><a class='nav-link active' href='#!'>Ateliers</a></li>
-                            <li class='nav-item'><a class='nav-link active' href='#!'>Produits</a></li>
-                            <li class='nav-item'><a class='nav-link active' href='#!'>CustomBox</a></li>
+                        <li class='nav-item'><a class='nav-link active' href='#accueil'>Accueil</a></li>
+                        <li class='nav-item'><a class='nav-link active' href='#atelier'>Ateliers</a></li>
+                        <li class='nav-item'><a class='nav-link active' href='#prods'>Produits</a></li>
+                        <li class='nav-item'><a class='nav-link active' href='#custom'>CustomBox</a></li>
                         </ul>
                         <form class='d-flex'>
                             <button class='btn btn-outline-dark' type='submit'>
@@ -103,7 +103,7 @@ class VuePrincipale{
                 </div>
             </nav>
         <!-- Icon -->
-                <section class='bg-dark py-5' >
+        <section class='bg-dark py-5' id='accueil'>
                     <div class='container px-4 px-lg-5 my-5'>
                         <div class='text-center text-white'>
                             <img class='rounded' src='$root/Img/logos/logocolor.png' width='300' height='300'>
@@ -114,7 +114,7 @@ class VuePrincipale{
                 </section>
 
                 <!-- Ateliers -->
-                <section class='bg-white py-5' >
+                 <section class='bg-white py-5' id='atelier'>
                     <div class='container px-4 px-lg-5 my-5'>
                         <div class='text-center text-dark'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #47ACA4'>Ateliers</h1>
@@ -124,8 +124,19 @@ class VuePrincipale{
                     </div>
                 </section>
 
-        <!-- Produits -->
+                <!-- CustomBox -->
                 <section class='bg-dark py-5' >
+                    <div class='container px-4 px-lg-5 my-5'>
+                        <div class='text-center text-white'>
+                            <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>CustomBox</h1>
+                            <p class='lead fw-normal text-white-50 mb-0'>Composez votre box personnalisée avec nos produits <br>pour vous ou pour offrir.</p>
+                            <br><button type='button' class='btn btn-dark'>Créez votre box!</button>
+                        </div>
+                    </div>
+                </section>
+
+        <!-- Produits -->
+        <section class='bg-white py-5' id='prods'>
                     <div class='container px-4 px-lg-5 my-5'>
                         <div class='text-center text-white'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>Produits</h1>
