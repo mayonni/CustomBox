@@ -144,7 +144,7 @@ class VuePrincipale{
         <section class='bg-white py-5' id='prods'>
                     <div class='container px-4 px-lg-5 my-5'>
                         <div class='text-center text-dark'>
-                            <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>Produits</h1>
+                            <h1 class='display-4 fw-bolder' style='text-decoration: underline #47ACA4'>Produits</h1>
                             <p class='lead fw-normal text-dark-50 mb-0'>Découvrez nos produits créés grâce à des matériaux de récup <br>ou proposés à la donation.</p>
                             <!-- Section-->
                                     <section class='py-5'>
