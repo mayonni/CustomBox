@@ -3,6 +3,7 @@
 namespace custumbox\controller;
 
 use custumbox\Vue\VueConnexion;
+use custumbox\Vue\VueUtilisateur;
 use custumbox\models\Utilisateur;
 use custumbox\controller\Authentification;
 use \Exception;
@@ -130,7 +131,6 @@ class ControleurConnexion {
         $vueUtilisateur = new VueUtilisateur($rq);
         $rs->getBody()->write($vueUtilisateur->render());
         return $rs;
-    }
     }
 
 }

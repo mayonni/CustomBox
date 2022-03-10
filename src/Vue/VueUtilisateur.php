@@ -9,9 +9,9 @@ class VueUtilisateur
 
     private $html;
 
-    public function __Construct($content, $titre, $rq)
+    public function __Construct($rq)
     {
-        $page = $this->setTemplate($content, $titre, $rq);
+        $page = $this->setTemplate($rq);
         $this->html = $page;
     }
 
@@ -19,7 +19,7 @@ class VueUtilisateur
         $this->gethtml();
     }
 
-    public function setTemplate($content, $titre, $rq) {
+    public function setTemplate($rq) {
         $path = $rq->getUri()->getBasePath();
         if(Authentification::isConnected()){
             $name = $_SESSION['user']['name'];
@@ -43,7 +43,6 @@ END;
            <meta charset="utf-8">
            <meta name="viewport" content="width=device-width, initial-scale=1">
            <link rel="icon" href="$path/img/logos/logoBlanc.png" />
-           <title> $titre </title>
            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
           </head>
         <body>
