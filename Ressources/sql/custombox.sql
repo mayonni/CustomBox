@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 10 Mars 2022 à 09:54
+-- Généré le :  Jeu 10 Mars 2022 à 10:43
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -105,7 +105,8 @@ INSERT INTO `produit` (`id`, `titre`, `description`, `categorie`, `poids`) VALUE
 CREATE TABLE `utilisateur` (
   `id` int(10) NOT NULL,
   `name` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
-  `password` varchar(20) CHARACTER SET utf8mb4 NOT NULL
+  `password` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
