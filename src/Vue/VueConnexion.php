@@ -1,6 +1,6 @@
 <?php
 
-namespace custumbox\src\Vue;
+namespace custumbox\Vue;
 
 class VueConnexion
 {
