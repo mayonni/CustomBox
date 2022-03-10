@@ -71,7 +71,7 @@ class VuePrincipale{
                   } else {
                       echo("pasCo");
                       $connect = <<<END
- a class='btn btn-outline-dark' href="$path/connexion"> Connexion / Inscription </a>
+ <a class='btn btn-outline-dark' href="$path/connexion"> Connexion / Inscription </a>
  END;
                   }
                    break;
