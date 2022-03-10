@@ -63,15 +63,21 @@ class VuePrincipale{
                   $path = $rq->getUri()->getBasePath();
                   if(Authentification::isConnected()){
                       $nom = $_SESSION['user']['name'];
-                      echo("Co ".$nom);
                       $connect =  <<<END
- nom Compte : $nom <a class="nav-link" href="$path/deco">Deconnexion</a>
+                      <a class="nav-link" href="$path/user">$nom</a> <a class="nav-link" href="$path/deco">Deconnexion</a>
  END;
+                    if(Authentification::isAdmin()){
+                        $vueAdmin = <<<END
+<p> vue admin </p>
+END;
+                    } else {
+                        $vueAdmin = "";
+                    }
                   } else {
-                      echo("pasCo");
                       $connect = <<<END
  <a class='btn btn-outline-dark' href="$path/connexion"> Connexion / Inscription </a>
  END;
+ $vueAdmin = "";
                   }
                    break;
               }

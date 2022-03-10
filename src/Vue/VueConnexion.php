@@ -33,7 +33,7 @@ class VueConnexion
                     <h3> Se connecter </h3>
                     <div class="row">
                         <div class="col">
-                            <label for="connecnomListe">Pseudo</label>
+                            <label for="connecnomListe">Nom</label>
                             <input id="connecnomListe" type="text" name="name" class="form-control" placeholder="Pseudonyme">
                         </div>
                         <div class="col">
@@ -54,12 +54,24 @@ class VueConnexion
                     <h3> Créer un compte </h3>
                     <div class="row">
                         <div class="col">
-                            <label for="nomListe">Pseudo</label>
+                            <label for="nomListe">Nom</label>
                             <input id="nomListe" type="text" name="name" class="form-control" placeholder="Pseudonyme">
+                        </div>
+                        <div class="col">
+                            <label for="nomListe">Prénom</label>
+                            <input id="nomListe" type="text" name="surname" class="form-control" placeholder="Pseudonyme">
                         </div>
                         <div class="col">
                             <label for="motDePasse">Mot de Passe</label>
                             <input id="motDePasse" type="password" name="password" class="form-control" placeholder="Mot De Passe">
+                        </div>
+                        <div class="col">
+                            <label for="nomListe">Mail</label>
+                            <input id="nomListe" type="text" name="mail" class="form-control" placeholder="Pseudonyme">
+                        </div>
+                        <div class="col">
+                            <label for="nomListe">Numéro de Téléphone</label>
+                            <input id="nomListe" type="text" name="phone" class="form-control" placeholder="Pseudonyme">
                         </div>
                     </div>
                     <hr>
@@ -87,7 +99,7 @@ END;
             <hr>
             <div class="container">
                 <div class="alert alert-warning" role="alert">
-                    Il semblerait que votre mot de passe ou votre nom comporte une erreur. Veuillez les vérifier.
+                    Il semblerait que l'un des éléments comporte une erreur. Veuillez les vérifier.
                 </div>
             </div>
 END;

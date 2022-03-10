@@ -35,6 +35,13 @@ $app->get(
 );
 
 $app->get(
+    '/user',
+    function ($rq, $rs, $args) {
+        return ControleurConnexion::afficherUtilisateur($rq, $rs,$args);
+    }
+);
+
+$app->get(
     '/deco',
     function ($rq, $rs, $args) {
         return ControleurConnexion::seDeconnecter($rq, $rs,$args);

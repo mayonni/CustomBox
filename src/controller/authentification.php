@@ -12,12 +12,15 @@ class Authentification {
      * @param pseudo nom de l'utilisateur
      * @param password mot de passe pas encore hashé
      */
-    static function createUser($pseudo, $password) {
+    static function createUser($pseudo, $password , $surname, $mail, $phone) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $u = new Utilisateur();
         $u->name = $pseudo;
         $u->password = $hash;
         $u->admin = 0;
+        $u->surname = $surname;
+        $u->mail = $mail;
+        $u->phone = $phone;
         $u->save();
     }
 
@@ -49,6 +52,9 @@ class Authentification {
             'id' => $u->id,
             'name' => $u->name,
             'admin' => $u->admin,
+            'surname' => $u->surname,
+            'mail' => $u->mail,
+            'phone' => $u->phone,
         ];
         $_SESSION['user'] = $data;
     }

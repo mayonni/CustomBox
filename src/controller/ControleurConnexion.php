@@ -73,8 +73,11 @@ class ControleurConnexion {
         $parsed = $rq->getParsedBody();
         $name = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
         $password = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
+        $surname = filter_var($parsed['surname'], FILTER_SANITIZE_STRING);
+        $mail = filter_var($parsed['mail'], FILTER_SANITIZE_STRING);
+        $phone = filter_var($parsed['phone'], FILTER_SANITIZE_STRING);
         // On vérifie si il n'a pas laissé une case vide
-        if ((!$name || !$password) || $name == '' || $password == '') {
+        if ((!$name || !$password) || $name == '' || $password == '' || $surname == '' || $mail == '' || $phone == '') {
             $vueConnexion = new VueConnexion($rq, 1);
         }
         // On vérifie si le mot de passe est assez long
@@ -89,7 +92,7 @@ class ControleurConnexion {
             }
             else {
                 // On sauvegarde l'utilisateur
-                Authentification::createUser($name, $password);
+                Authentification::createUser($name, $password, $surname, $mail, $phone);
                 $vueConnexion = new VueConnexion($rq);
             }
         }
@@ -121,6 +124,13 @@ class ControleurConnexion {
             if ($args['type'] == 'connex') return ControleurConnexion::seConnecter($rq, $rs, $args);
             else if ($args['type'] == 'crea') return ControleurConnexion::creerCompte($rq, $rs, $args);
         }
+    }
+
+    static function afficherUtilisateur($rq, $rs, $args) {
+        $vueUtilisateur = new VueUtilisateur($rq);
+        $rs->getBody()->write($vueUtilisateur->render());
+        return $rs;
+    }
     }
 
 }
