@@ -7,4 +7,10 @@ Membres du __UwU Gang__ :
 - PRULIERE Justine
 - MAION Mathieu
 
-Site : [CustomBox-UwUGang](http://www.simplonline.com)
+Site : [CustomBox-UwUGang](https://webetu.iutnc.univ-lorraine.fr/www/pruliere1u/CrazyCharlyDay/CustomBox/)
+
+Fonctionnalités réalisées : 
+- 1 Affichage de la liste des produits
+- 3 Création d'une commande (NON FINIE)
+- 10 Création nouveau compte
+- 11 Accès avec authentification
