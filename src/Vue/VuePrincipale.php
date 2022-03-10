@@ -67,7 +67,8 @@ class VuePrincipale{
                   if(Authentification::isConnected()){
                       $nom = $_SESSION['user']['name'];
                       $connect =  <<<END
-                      <a class="nav-link" href="$path/user">$nom</a> <a class="nav-link" href="$path/deco">Deconnexion</a>
+ <button type='button' class='btn btn-outline-dark' onclick="window.location.href='$path/user';">$nom</button>&emsp;<button type='button' class='btn btn-outline-dark' onclick="window.location.href='$path/deco';">Deconnexion</button>
+                      
  END;
                     if(Authentification::isAdmin()){
                         $vueAdmin = <<<END

@@ -2,7 +2,7 @@
 
 namespace custumbox\Vue;
 
-
+define('SCRIPT_ROOT', 'http://localhost/CrazyCharlyDay/CustomBox/Ressources');
 class VueConnexion
 {
     private $error;
@@ -41,7 +41,7 @@ class VueConnexion
         <!-- Bootstrap icons-->
         <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet' />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href='$root/Css/styles.css' rel='stylesheet' />
+        <link href='/Css/styles.css' rel='stylesheet' />
      </head>
         <body>
     <div class="container">
@@ -62,7 +62,7 @@ class VueConnexion
                     <hr>
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                            <button class="btn btn-primary btn-lg btn-outline-dark" type="submit">Se connecter</button>
+                            <button class="btn btn-lg btn-outline-dark" type="submit">Se connecter</button>
                         </div>        
                     </div>
                 </form>
@@ -95,7 +95,7 @@ class VueConnexion
                     <hr>
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                            <button class="btn btn-primary btn-lg btn-outline-dark" type="submit">Créer</button>
+                            <button class="btn btn-lg btn-outline-dark" type="submit">Créer</button>
                         </div>        
                     </div>
                 </form>
