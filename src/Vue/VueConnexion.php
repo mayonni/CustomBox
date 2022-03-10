@@ -34,7 +34,7 @@ class VueConnexion
                     <div class="row">
                         <div class="col">
                             <label for="connecnomListe">Nom</label>
-                            <input id="connecnomListe" type="text" name="name" class="form-control" placeholder="Pseudonyme">
+                            <input id="connecnomListe" type="text" name="name" class="form-control" placeholder="Nom">
                         </div>
                         <div class="col">
                             <label for="connecmotDePasse">Mot de Passe</label>
@@ -55,11 +55,11 @@ class VueConnexion
                     <div class="row">
                         <div class="col">
                             <label for="nomListe">Nom</label>
-                            <input id="nomListe" type="text" name="name" class="form-control" placeholder="Pseudonyme">
+                            <input id="nomListe" type="text" name="name" class="form-control" placeholder="Nom">
                         </div>
                         <div class="col">
                             <label for="nomListe">Prénom</label>
-                            <input id="nomListe" type="text" name="surname" class="form-control" placeholder="Pseudonyme">
+                            <input id="nomListe" type="text" name="surname" class="form-control" placeholder="Prénom">
                         </div>
                         <div class="col">
                             <label for="motDePasse">Mot de Passe</label>
@@ -67,11 +67,11 @@ class VueConnexion
                         </div>
                         <div class="col">
                             <label for="nomListe">Mail</label>
-                            <input id="nomListe" type="text" name="mail" class="form-control" placeholder="Pseudonyme">
+                            <input id="nomListe" type="text" name="mail" class="form-control" placeholder="Mail">
                         </div>
                         <div class="col">
                             <label for="nomListe">Numéro de Téléphone</label>
-                            <input id="nomListe" type="text" name="phone" class="form-control" placeholder="Pseudonyme">
+                            <input id="nomListe" type="text" name="phone" class="form-control" placeholder="Téléphone">
                         </div>
                     </div>
                     <hr>
