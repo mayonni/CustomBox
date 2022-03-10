@@ -4,6 +4,7 @@ namespace custumbox\controller;
 
 use custumbox\Vue\VueConnexion;
 use custumbox\models\Utilisateur;
+use custumbox\controller\Authentification;
 use \Exception;
 
 class ControleurConnexion {
@@ -38,7 +39,7 @@ class ControleurConnexion {
             else {
                 // On teste le mot de passe
                 try {
-                    Authentication::authenticate($u, $passw);
+                    Authentification::authenticate($u, $passw);
                     // Si l'authentification a marché, on redirige l'utilisateur vers l'index
                     $path = $rq->getUri()->getBasePath();
                     $rs = $rs->withRedirect($path);
@@ -55,7 +56,7 @@ class ControleurConnexion {
 
     static function seDeconnecter($rq, $rs, $args) {
         // On libère la variable de session
-        Authentication::freeProfile();
+        Authentification::freeProfile();
         
         // On redirige l'utilisateur vers l'index
         $path = $rq->getUri()->getBasePath();
@@ -89,7 +90,7 @@ class ControleurConnexion {
             }
             else {
                 // On sauvegarde l'utilisateur
-                Authentication::createUser($pseudo, $passw);
+                Authentification::createUser($pseudo, $passw);
                 $vueConnexion = new VueConnexion($rq);
             }
         }

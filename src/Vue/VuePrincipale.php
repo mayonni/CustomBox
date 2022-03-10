@@ -56,13 +56,15 @@ class VuePrincipale{
 
     public function render($selecteur,$rq)
     {
+        $path = $rq->getUri()->getBasePath();
         if(Authentification::isConnected()){
             $nom = $_SESSION['user']['name'];
-            $connect =  "nom Compte : $nom";
+            $connect =  `nom Compte : $nom
+            <a class="nav-link" href="$path/deco">Deconnexion</a>`;
         } else {
-            $connect = "<button class='btn btn-outline-dark' type='submit'>
+            $connect = `<a class='btn btn-outline-dark' href="$path/connexion">
             Connexion / Inscription
-        </button>";
+        </a>`;
       }
          switch ($selecteur) {
               case 1:

@@ -7,6 +7,7 @@ require 'vendor/autoload.php';
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
+use custumbox\controller\ControleurConnexion;
 use \Illuminate\Database\Capsule\Manager as DB;
 use \Slim\Container;
 use \Slim\App;
@@ -25,5 +26,19 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 $app->get('/', 'custumbox\controller\AffichageController:affichage')->setName('affAccueil');
+
+$app->get(
+    '/connexion',
+    function ($rq, $rs, $args) {
+        return ControleurConnexion::afficherConnexion($rq, $rs,$args);
+    }
+);
+
+$app->get(
+    '/deco',
+    function ($rq, $rs, $args) {
+        return ControleurConnexion::seDeconnecter($rq, $rs,$args);
+    }
+);
 
 $app->run();
