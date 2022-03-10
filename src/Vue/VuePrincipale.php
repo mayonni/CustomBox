@@ -98,6 +98,11 @@ class VuePrincipale{
                             <button class='btn btn-outline-dark' type='submit'>
                                 Connexion / Inscription
                             </button>
+                            <button class="btn btn-outline-dark" type="submit">
+                                <i class="bi-cart-fill me-1"></i>
+                                Cart
+                                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -125,12 +130,12 @@ class VuePrincipale{
                 </section>
 
                 <!-- CustomBox -->
-                <section class='bg-dark py-5' >
+                <section class='bg-dark py-5' id='custom'>
                     <div class='container px-4 px-lg-5 my-5'>
                         <div class='text-center text-white'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>CustomBox</h1>
                             <p class='lead fw-normal text-white-50 mb-0'>Composez votre box personnalisée avec nos produits <br>pour vous ou pour offrir.</p>
-                            <br><button type='button' class='btn btn-dark'>Créez votre box!</button>
+                            <br><button type='button' class='btn btn-light'>Créez votre box!</button>
                         </div>
                     </div>
                 </section>
@@ -138,11 +143,15 @@ class VuePrincipale{
         <!-- Produits -->
         <section class='bg-white py-5' id='prods'>
                     <div class='container px-4 px-lg-5 my-5'>
-                        <div class='text-center text-white'>
+                        <div class='text-center text-dark'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>Produits</h1>
-                            <p class='lead fw-normal text-white-50 mb-0'>Découvrez nos produits créés grâce à des matériaux de récup <br>ou proposés à la donation.</p>
+                            <p class='lead fw-normal text-dark-50 mb-0'>Découvrez nos produits créés grâce à des matériaux de récup <br>ou proposés à la donation.</p>
                             <!-- Section-->
                                     <section class='py-5'>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Rechercher un produit</span>
+                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    </div>
                                         <div class='container px-4 px-lg-5 mt-5'>
                                             <div class='row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'>
                                                 $content
