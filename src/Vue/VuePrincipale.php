@@ -57,17 +57,16 @@ class VuePrincipale{
               case 1:
               {
                    $content = $this->afficherProduits($rq);
-                   $connect  = function(){
-                    if (Authentication::isConnected()){
+                 
+                    if(Authentication::isConnected()){
                         $nom = $_SESSION['user']['name'];
-                        return "nom Compte : $nom";
+                        $connect =  "nom Compte : $nom";
                     } else {
-                        return "<button class='btn btn-outline-dark' type='submit'>
+                        $connect = "<button class='btn btn-outline-dark' type='submit'>
                         Connexion / Inscription
                     </button>";
                     }
                    };
-         }
 
     $root = SCRIPT_ROOT;
 
