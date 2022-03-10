@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1
+-- http://www.phpmyadmin.net
 --
--- Hôte : 127.0.0.1
--- Généré le : mar. 08 mars 2022 à 18:24
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.0.10
+-- Client :  localhost
+-- Généré le :  Jeu 10 Mars 2022 à 09:54
+-- Version du serveur :  5.7.11
+-- Version de PHP :  7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `custombox`
+-- Base de données :  `atelier`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +33,7 @@ CREATE TABLE `boite` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `boite`
+-- Contenu de la table `boite`
 --
 
 INSERT INTO `boite` (`id`, `taille`, `poidsmax`) VALUES
@@ -54,7 +53,7 @@ CREATE TABLE `categorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `categorie`
+-- Contenu de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `nom`) VALUES
@@ -79,7 +78,7 @@ CREATE TABLE `produit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `produit`
+-- Contenu de la table `produit`
 --
 
 INSERT INTO `produit` (`id`, `titre`, `description`, `categorie`, `poids`) VALUES
@@ -97,8 +96,20 @@ INSERT INTO `produit` (`id`, `titre`, `description`, `categorie`, `poids`) VALUE
 (12, 'Surprise', 'Pochette surprise pour faire plaisir aux petits et grands', 5, 0.7),
 (13, 'T-shirt', 'T-shirt peint à la main et avec pochoir', 5, 0.32);
 
+-- --------------------------------------------------------
+
 --
--- Index pour les tables déchargées
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+  `id` int(10) NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+  `password` varchar(20) CHARACTER SET utf8mb4 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Index pour les tables exportées
 --
 
 --
@@ -121,7 +132,13 @@ ALTER TABLE `produit`
   ADD KEY `categorie` (`categorie`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
@@ -129,21 +146,23 @@ ALTER TABLE `produit`
 --
 ALTER TABLE `boite`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
--- Contraintes pour les tables déchargées
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -151,7 +170,6 @@ ALTER TABLE `produit`
 --
 ALTER TABLE `produit`
   ADD CONSTRAINT `produit_ibfk_1` FOREIGN KEY (`categorie`) REFERENCES `categorie` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
