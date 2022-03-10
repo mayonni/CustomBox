@@ -1,9 +1,8 @@
 <?php
 
-namespace custumbox\src\models;
+namespace custumbox\models;
 
-class Utilisateur extends \Illuminate\Database\Eloquent\Models
-
+class Utilisateur extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = "utilisateur";
     protected $primaryKey = "id";

@@ -1,6 +1,6 @@
 <?php namespace custumbox\models;
 
-class categorie extends \Illuminate\Database\Eloquent\Models {
+class categorie extends \Illuminate\Database\Eloquent\Model {
     protected $table = 'categorie';
     protected $primaryKey = 'id' ;
     public $timestamps = false ;
