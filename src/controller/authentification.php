@@ -29,6 +29,7 @@ class Authentification {
      */
     static function authenticate($u, $p) {
         $hash = $u->password;
+        $hashp = password_hash($p, PASSWORD_DEFAULT);
         if (password_verify($p, $hash)) {
             Authentification::loadProfile($u);
             return true;

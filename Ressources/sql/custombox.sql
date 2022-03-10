@@ -105,7 +105,7 @@ INSERT INTO `produit` (`id`, `titre`, `description`, `categorie`, `poids`) VALUE
 CREATE TABLE `utilisateur` (
   `id` int(10) NOT NULL,
   `name` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
-  `password` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+  `password` varchar(60) CHARACTER SET utf8mb4 NOT NULL,
   `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

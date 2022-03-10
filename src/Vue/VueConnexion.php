@@ -87,7 +87,7 @@ END;
             <hr>
             <div class="container">
                 <div class="alert alert-warning" role="alert">
-                    Il semblerait que votre mot de passe ou votre pseudo comporte une erreur. Veuillez les vérifier.
+                    Il semblerait que votre mot de passe ou votre nom comporte une erreur. Veuillez les vérifier.
                 </div>
             </div>
 END;
