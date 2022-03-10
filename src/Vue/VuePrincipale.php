@@ -138,7 +138,45 @@ class VuePrincipale{
                         <div class='text-center text-dark'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #47ACA4'>Ateliers</h1>
                             <p class='lead fw-normal text-black-50 mb-0'>L'association propose de nombreux ateliers pour venir en aide <br>aux personnes en situation de précarité ou d'isolement.</p>
-                            <br><button type='button' class='btn btn-dark'>Découvrez nos ateliers</button>
+                            <br><button type='button' id='ate' class='btn btn-dark'>Découvrez nos ateliers</button>
+                            <section class='bg-white py-5' style='display:none' id='toggle'>
+    <div class='container px-4 my-5'>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/1.png">
+            <h1>Beauté inclusive</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Création de soins naturels.
+                Développement de l'estime de soi.
+                Confiance et bien-être.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/2.png">
+            <h1>Bijoux recyclés</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Création de bijou fait-main.
+                Sensibilisation à la surconsommation.
+                Créations personnalisées.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/3.png">
+            <h1>Décoration</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Réutilisation de matériaux.
+                Destinés à être jetés.
+                Créations uniques.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/4.png">
+            <h1>Produits ménagers</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Création de produits naturels.
+                Sensibilisation aux produits nocifs et sur-emballés.</p>
+        </div>
+        <div class='text-center text-dark'>
+            <img src="$root/Img/categories/5.png">
+            <h1>Upcycling</h1>
+            <p class='lead fw-normal text-dark-50 mb-0'>Développement durable.
+                Sensibilisation au gaspillage textile.
+                Créativité.</p>
+        </div>
+    </div>
+</section>
                         </div>
                     </div>
                 </section>
@@ -148,8 +186,8 @@ class VuePrincipale{
                     <div class='container px-4 px-lg-5 my-5'>
                         <div class='text-center text-white'>
                             <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>CustomBox</h1>
-                            <p class='lead fw-normal text-white-50 mb-0'>Composez votre box personnalisée avec nos produits <br>pour vous ou pour offrir.</p>
-                            <br><button type='button' class='btn btn-light'>Créez votre box!</button>
+                            <p class='lead fw-normal text-white-50 mb-0'>Créez votre box personnalisée avec nos produits <br>pour vous ou pour offrir.</p>
+                            <br><button type='button' class='btn btn-light' onclick="window.location.href='$path/#prods';">Composez votre box!</button>
                         </div>
                     </div>
                 </section>
@@ -183,7 +221,8 @@ class VuePrincipale{
         <!-- Bootstrap core JS-->
         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
         <!-- Core theme JS-->
-        <script src='js/scripts.js'></script>
+        <script src='$root/js/scripts.js'></script>
+        <script src='$root/js/toggledisplay.js'></script>
     </body>
 </html>
 
