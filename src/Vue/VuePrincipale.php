@@ -24,10 +24,10 @@ class VuePrincipale{
     public function afficherProduits($rq):string
     {
         $path = $rq->getUri()->getBasePath();
-        echo($path."/Ressources/Img/produits/.jpg");
         $listeProduits = $this->tab;
         foreach ($listeProduits as $l) {
             $idProduit = $l['id'];
+            $content = "";
                 $content .= "
                 <div class='col mb-5'>
                     <div class='card h-100'>

@@ -14,7 +14,6 @@ use \Slim\App;
 
 $configuration = [
     'settings' => [
-    'displayErrorDetails' => true,
     'dbconf' => '/conf/db.conf.ini' ]
     ];
     $c = new Container($configuration);
