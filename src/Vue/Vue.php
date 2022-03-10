@@ -30,7 +30,7 @@ class Vue
         </li>
     </ul>
 END;
-        if (Authentication::isConnected()) {
+        if (Authentification::isConnected()) {
             $nom = $_SESSION['user']['pseudo'];
             $categories = <<<END
                 <li>
