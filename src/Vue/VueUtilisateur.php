@@ -16,7 +16,7 @@ class VueUtilisateur
     }
 
     public function render() {
-        $this->gethtml();
+        return $this->gethtml();
     }
 
     public function setTemplate($rq) {
