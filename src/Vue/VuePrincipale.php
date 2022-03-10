@@ -3,6 +3,7 @@
 namespace custumbox\Vue;
 
 use \Slim\Container;
+use \custumbox\models\Utilisateur;
 
   define('SCRIPT_ROOT', 'http://localhost/CrazyCharlyDay/CustomBox/Ressources');
 
