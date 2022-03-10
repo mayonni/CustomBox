@@ -23,7 +23,6 @@ class VuePrincipale{
     public function afficherProduits($rq):string
     {
         $path = $rq->getUri()->getBasePath();
-        echo($path."/Ressources/Img/produits/.jpg");
         $listeProduits = $this->tab;
         foreach ($listeProduits as $l) {
             $idProduit = $l['id'];
