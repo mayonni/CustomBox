@@ -1,9 +1,9 @@
 <?php
 
-namespace custumbox\controller;
+namespace custumbox\src\controller;
 
 use \Slim\Container;
-use custumbox\Vue\VuePrincipale;
+use custumbox\src\Vue\VuePrincipale;
 use custumbox\models\produit;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;

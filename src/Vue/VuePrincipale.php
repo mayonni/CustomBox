@@ -1,6 +1,6 @@
 <?php
 
-namespace custumbox\Vue;
+namespace custumbox\src\Vue;
 
 use \Slim\Container;
 

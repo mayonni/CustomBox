@@ -1,6 +1,6 @@
 <?php
 
-namespace custumbox\models;
+namespace custumbox\src\models;
 
 class Utilisateur extends \Illuminate\Database\Eloquent\Model
 {

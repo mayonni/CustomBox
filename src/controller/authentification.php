@@ -3,7 +3,7 @@
 namespace custumbox\src\controller;
 
 use custumbox\src\models\Utilisateur;
-use custumbox\src\exception\WrongPasswordException;
+use \Exception;
 
 class Authentication {
 
@@ -33,7 +33,7 @@ class Authentication {
             return true;
         }
         else {
-            throw new WrongPasswordException('Le mot de passe ne correspond pas.');
+            throw new Exception('Le mot de passe ne correspond pas.');
             return false;
         }
     }
