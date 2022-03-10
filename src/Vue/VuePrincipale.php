@@ -11,6 +11,7 @@ class VuePrincipale{
 
     public array $tab;
     public Container $container;
+    public string  $fdg;
 
     public function __construct(array $tab, Container $container)
     {
