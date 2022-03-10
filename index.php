@@ -41,4 +41,11 @@ $app->get(
     }
 );
 
+$app->post(
+    '/connexion/{type}',
+    function ($rq, $rs, $args) {
+        return ControleurConnexion::orienter($rq, $rs,$args);
+    }
+);
+
 $app->run();

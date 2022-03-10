@@ -17,6 +17,7 @@ class Authentification {
         $u = new Utilisateur();
         $u->name = $pseudo;
         $u->password = $hash;
+        $u->admin = 0;
         $u->save();
     }
 
@@ -46,6 +47,7 @@ class Authentification {
         $data = [
             'id' => $u->id,
             'name' => $u->name,
+            'admin' => $u->admin,
         ];
         $_SESSION['user'] = $data;
     }
@@ -56,6 +58,11 @@ class Authentification {
 
     static function isConnected() {
         if (isset($_SESSION['user'])) return true;
+        else return false;
+    }
+
+    static function isAdmin() {
+        if (isset($_SESSION['user']['admin'])===1) return true;
         else return false;
     }
 

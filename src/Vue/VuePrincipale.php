@@ -56,27 +56,30 @@ class VuePrincipale{
 
     public function render($selecteur,$rq)
     {
-        $path = $rq->getUri()->getBasePath();
-        if(Authentification::isConnected()){
-            $nom = $_SESSION['user']['name'];
-            $connect =  `nom Compte : $nom
-            <a class="nav-link" href="$path/deco">Deconnexion</a>`;
-        } else {
-            $connect = `<a class='btn btn-outline-dark' href="$path/connexion">
-            Connexion / Inscription
-        </a>`;
-      }
+
          switch ($selecteur) {
               case 1:
               {
                    $content = $this->afficherProduits($rq);
+                  $path = $rq->getUri()->getBasePath();
+                  if(Authentification::isConnected()){
+                      $nom = $_SESSION['user']['name'];
+                      echo("Co ".$nom);
+                      $connect =  <<<END
+ nom Compte : $nom <a class="nav-link" href="$path/deco">Deconnexion</a>
+ END;
+                  } else {
+                      echo("pasCo");
+                      $connect = <<<END
+ <a class='btn btn-outline-dark' href="$path/connexion"> Connexion / Inscription </a>
+ END;
+                  }
                    break;
               }
 
          }
 
     $root = SCRIPT_ROOT;
-
 
     $html = <<<END
 <!DOCTYPE html>
