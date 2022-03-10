@@ -26,7 +26,7 @@ class ControleurConnexion {
         }
 
         // On vérifie si le mot de passe est assez long
-        else if (strlen($passw) < 12) {
+        else if (strlen($passw) < 10) {
             $vueConnexion = new VueConnexion($rq, 2);
         }
         // Cas où les 2 étapes sont passées
@@ -72,8 +72,8 @@ class ControleurConnexion {
      */
     static function creerCompte($rq, $rs, $args) {
         $parsed = $rq->getParsedBody();
-        $pseudo = filter_var($parsed['pseudo'], FILTER_SANITIZE_STRING);
-        $passw = filter_var($parsed['passw'], FILTER_SANITIZE_STRING);
+        $pseudo = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
+        $passw = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
         // On vérifie si il n'a pas laissé une case vide
         if ((!$pseudo || !$passw) || $pseudo == '' || $passw == '') {
             $vueConnexion = new VueConnexion($rq, 1);
@@ -83,7 +83,7 @@ class ControleurConnexion {
             $vueConnexion = new VueConnexion($rq, 2);
         }
         else {
-            $u = Utilisateur::where('pseudo', $pseudo)->first();
+            $u = Utilisateur::where('name', $pseudo)->first();
             // On vérifie si l'utilisateur existe pour ne pas créer un doublon
             if (isset($u)) {
                 $vueConnexion = new VueConnexion($rq, 5);
