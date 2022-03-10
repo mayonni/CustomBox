@@ -17,21 +17,21 @@ class ControleurConnexion {
      */
     static function seConnecter($rq, $rs, $args) {
         $parsed = $rq->getParsedBody();
-        $pseudo = filter_var($parsed['pseudo'], FILTER_SANITIZE_STRING);
-        $passw = filter_var($parsed['passw'], FILTER_SANITIZE_STRING);
+        $name = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
+        $password = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
 
         // On vérifie si il n'a pas laissé une case vide
-        if ((!$pseudo || !$passw) || $pseudo == '' || $passw == '') {
+        if ((!$name || !$password) || $name == '' || $password == '') {
             $vueConnexion = new VueConnexion($rq, 1);
         }
 
         // On vérifie si le mot de passe est assez long
-        else if (strlen($passw) < 10) {
+        else if (strlen($password) < 10) {
             $vueConnexion = new VueConnexion($rq, 2);
         }
         // Cas où les 2 étapes sont passées
         else {
-            $u = Utilisateur::where('pseudo', $pseudo)->first();
+            $u = Utilisateur::where('name', $name)->first();
             // On vérifie que l'utilisateur existe
             if (!isset($u)) {
                 $vueConnexion = new VueConnexion($rq, 4);
@@ -39,7 +39,7 @@ class ControleurConnexion {
             else {
                 // On teste le mot de passe
                 try {
-                    Authentification::authenticate($u, $passw);
+                    Authentification::authenticate($u, $password);
                     // Si l'authentification a marché, on redirige l'utilisateur vers l'index
                     $path = $rq->getUri()->getBasePath();
                     $rs = $rs->withRedirect($path);
@@ -72,25 +72,25 @@ class ControleurConnexion {
      */
     static function creerCompte($rq, $rs, $args) {
         $parsed = $rq->getParsedBody();
-        $pseudo = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
-        $passw = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
+        $name = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
+        $password = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
         // On vérifie si il n'a pas laissé une case vide
-        if ((!$pseudo || !$passw) || $pseudo == '' || $passw == '') {
+        if ((!$name || !$password) || $name == '' || $password == '') {
             $vueConnexion = new VueConnexion($rq, 1);
         }
         // On vérifie si le mot de passe est assez long
-        else if (strlen($passw) < 12) {
+        else if (strlen($password) < 10) {
             $vueConnexion = new VueConnexion($rq, 2);
         }
         else {
-            $u = Utilisateur::where('name', $pseudo)->first();
+            $u = Utilisateur::where('name', $name)->first();
             // On vérifie si l'utilisateur existe pour ne pas créer un doublon
             if (isset($u)) {
                 $vueConnexion = new VueConnexion($rq, 5);
             }
             else {
                 // On sauvegarde l'utilisateur
-                Authentification::createUser($pseudo, $passw);
+                Authentification::createUser($name, $password);
                 $vueConnexion = new VueConnexion($rq);
             }
         }
