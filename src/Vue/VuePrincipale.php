@@ -4,14 +4,18 @@ namespace custumbox\Vue;
 
 use \Slim\Container;
 
-class principale{
+  define('SCRIPT_ROOT', 'http://localhost/CrazyCharlyDay/CustomBox/Ressources');
+
+class VuePrincipale{
+
+
 
     public array $tab;
     public Container $container;
 
-    public function __construct(array $tab, Container $container)
+    public function __construct( Container $container)
     {
-        $this->tab = $tab;
+
         $this->container = $container;
     }
 
@@ -32,7 +36,9 @@ class principale{
               }
 
          }
-    }
+
+    $root = SCRIPT_ROOT;
+
 
     $html = <<<END
 <!DOCTYPE html>
@@ -48,7 +54,7 @@ class principale{
         <!-- Bootstrap icons-->
         <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet' />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href='../css/styles.css' rel='stylesheet' />
+        <link href='$root/Css/styles.css' rel='stylesheet' />
     </head>
     <body>
         <!-- Navigation-->
@@ -299,10 +305,12 @@ class principale{
         <!-- Bootstrap core JS-->
         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
         <!-- Core theme JS-->
-        <script src='../js/scripts.js'></script>
+        <script src='$root/js/scripts.js'></script>
     </body>
 </html>
 END;
 
     return $html;
+}
+
 }

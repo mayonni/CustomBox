@@ -3,11 +3,11 @@
 namespace custumbox\controller;
 
 use \Slim\Container;
-use custumbox\Vue\principale;
+use custumbox\Vue\VuePrincipale;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-class affichageController{
+class AffichageController{
 
     private Container $container;
 
@@ -17,9 +17,9 @@ class affichageController{
         $this->container = $container;
     }
 
-    public function afficherEvenements(Request $rq, Response $rs, $args): Response
+    public function affichage(Request $rq, Response $rs, $args): Response
     {
-        //$vue blablabla
+        $vue = new VuePrincipale($this->container);
         $html = $vue->render(1);
         $rs->getBody()->write($html);
         return $rs;

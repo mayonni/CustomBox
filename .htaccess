@@ -4,7 +4,7 @@ RewriteEngine On
 # remplacer <login> et <projet> par les valeurs correpsondant à
 # votre cas - par exemple :
 # RewriteBase /www/username0/custumbox/
-RewriteBase /www/<login>/<projet>/
+# RewriteBase /www/<login>/<projet>/
 
 
 #
@@ -12,6 +12,7 @@ RewriteBase /www/<login>/<projet>/
 RewriteRule ^sql(/.*|)$ - [NC,F]
 RewriteRule ^src(/.*|)$ - [NC,F]
 RewriteRule ^vendor(/.*|)$ - [NC,F]
+RewriteRule ^bootstrap(/.*|)$ - [NC,F]
 
 #
 # réécriture pour slim

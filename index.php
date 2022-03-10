@@ -11,8 +11,19 @@ use \Illuminate\Database\Capsule\Manager as DB;
 use \Slim\Container;
 use \Slim\App;
 
+$configuration = [
+    'settings' => [
+    'displayErrorDetails' => true,
+    'dbconf' => '/conf/db.conf.ini' ]
+    ];
+    $c = new Container($configuration);
+    $app = new App($c);
 
 $db = new DB();
 $db->addConnection(parse_ini_file('src/conf/conf.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
+
+$app->get('/', 'custumbox\controller\AffichageController:affichage')->setName('affAccueil');
+
+$app->run();
