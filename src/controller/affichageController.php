@@ -16,4 +16,12 @@ class affichageController{
     {
         $this->container = $container;
     }
+
+    public function afficherEvenements(Request $rq, Response $rs, $args): Response
+    {
+        //$vue blablabla
+        $html = $vue->render(1);
+        $rs->getBody()->write($html);
+        return $rs;
+    }
 }
