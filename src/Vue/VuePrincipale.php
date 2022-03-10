@@ -9,6 +9,7 @@ use \Slim\Container;
   define('SCRIPT_ROOT', 'http://localhost/CrazyCharlyDay/CustomBox/Ressources');
 class VuePrincipale{
 
+
     public array $tab;
     public Container $container;
     public string  $fdg;
@@ -23,6 +24,7 @@ class VuePrincipale{
     public function afficherProduits($rq):string
     {
         $path = $rq->getUri()->getBasePath();
+        echo($path."/Ressources/Img/produits/.jpg");
         $listeProduits = $this->tab;
         foreach ($listeProduits as $l) {
             $idProduit = $l['id'];
@@ -35,16 +37,16 @@ class VuePrincipale{
                         <div class='card-body p-4'>
                             <div class='text-center'>
                             <!-- Product name-->
-                                <h5 class='fw-bolder text-dark'>$l[titre]</h5>
+                                <h5 class='fw-bolder text-dark titre'>$l[titre]</h5>
                                 <!-- Product weight-->
-                                  <p class='text-dark'>poids: $l[poids]</p>
-                                  <p class='text-dark'>catégorie: $l[categorie]</p>
+                                  <p>poids:<span class='text-dark poids'> $l[poids]</span></p>
+                                  <p class='text-dark categorie'>Atelier: $l[categorie]</p>
                                   <p class='text-dark'>$l[description]</p>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class='card-footer p-4 pt-0 border-top-0 bg-transparent'>
-                            <div class='text-center'><a class='btn btn-outline-dark mt-auto' href='#'>Ajouter à ma box</a></div>
+                            <div class='text-center'><a class='btn btn-outline-dark mt-auto' id=$l[titre]>Ajouter à ma box</a></div>
                         </div>
                     </div>
                 </div>";
@@ -116,16 +118,37 @@ END;
                         <li class='nav-item'><a class='nav-link active' href='#prods'>Produits</a></li>
                         </ul>
                         <form class='d-flex'>
+                            <div>
                             $connect
-                            <button class="btn btn-outline-dark" type="submit">
-                                <i class="bi-cart-fill me-1"></i>
+                            &emsp;
+                            <button id='cart' class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <i  class="bi-cart-fill me-1"></i>
                                 Ma box
-                                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                                <span id='nombre-produit' class="badge bg-dark text-white ms-1 rounded-pill"></span>
                             </button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </nav>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                          <div class='offcanvas-header'>
+                                            <h5 id="offcanvasRightLabel">Contenu de votre box</h5>
+                                            <button type="button" class='btn-close text-reset' data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                          </div>
+                                          <div style='position:relative;'>
+                                          <div class='offcanvas-body' id='contenu-panier'>
+
+
+                                          </div>
+                                          <div style='position:absolute; bottom:0;'>
+                                          &emsp;
+
+                                          </div>
+                                          </div>
+                                        </div>
+
         <!-- Icon -->
         <section class='bg-dark py-5' id='accueil'>
                     <div class='container px-4 px-lg-5 my-5'>
