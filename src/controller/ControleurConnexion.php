@@ -19,7 +19,6 @@ class ControleurConnexion {
         $parsed = $rq->getParsedBody();
         $name = filter_var($parsed['name'], FILTER_SANITIZE_STRING);
         $password = filter_var($parsed['password'], FILTER_SANITIZE_STRING);
-
         // On vérifie si il n'a pas laissé une case vide
         if ((!$name || !$password) || $name == '' || $password == '') {
             $vueConnexion = new VueConnexion($rq, 1);

@@ -34,11 +34,11 @@ class VueConnexion
                     <div class="row">
                         <div class="col">
                             <label for="connecnomListe">Pseudo</label>
-                            <input id="connecnomListe" type="text" name="pseudo" class="form-control" placeholder="Pseudonyme">
+                            <input id="connecnomListe" type="text" name="name" class="form-control" placeholder="Pseudonyme">
                         </div>
                         <div class="col">
                             <label for="connecmotDePasse">Mot de Passe</label>
-                            <input id="connecmotDePasse" type="password" name="passw" class="form-control" placeholder="Mot De Passe">
+                            <input id="connecmotDePasse" type="password" name="password" class="form-control" placeholder="Mot De Passe">
                         </div>
                     </div>
                     <hr>
@@ -55,11 +55,11 @@ class VueConnexion
                     <div class="row">
                         <div class="col">
                             <label for="nomListe">Pseudo</label>
-                            <input id="nomListe" type="text" name="pseudo" class="form-control" placeholder="Pseudonyme">
+                            <input id="nomListe" type="text" name="name" class="form-control" placeholder="Pseudonyme">
                         </div>
                         <div class="col">
                             <label for="motDePasse">Mot de Passe</label>
-                            <input id="motDePasse" type="password" name="passw" class="form-control" placeholder="Mot De Passe">
+                            <input id="motDePasse" type="password" name="password" class="form-control" placeholder="Mot De Passe">
                         </div>
                     </div>
                     <hr>
