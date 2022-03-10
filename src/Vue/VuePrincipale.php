@@ -3,7 +3,7 @@
 namespace custumbox\Vue;
 
 
-use \custumbox\controller\Authentication;
+use custumbox\controller\Authentification;
 use \Slim\Container;
 
   define('SCRIPT_ROOT', 'http://localhost/CrazyCharlyDay/CustomBox/Ressources');
@@ -56,14 +56,13 @@ class VuePrincipale{
 
     public function render($selecteur,$rq)
     {
-        if(Authentication::isConnected()){
+        if(Authentification::isConnected()){
             $nom = $_SESSION['user']['name'];
             $connect =  "nom Compte : $nom";
         } else {
             $connect = "<button class='btn btn-outline-dark' type='submit'>
             Connexion / Inscription
         </button>";
-           break;
       }
          switch ($selecteur) {
               case 1:

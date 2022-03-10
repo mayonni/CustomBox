@@ -5,7 +5,7 @@ namespace custumbox\controller;
 use custumbox\models\Utilisateur;
 use \Exception;
 
-class Authentication {
+class Authentification {
 
     /**
      * méthode qui permet de créer un nouvel utilisateur et le sauvegarde dans la bdd
@@ -29,7 +29,7 @@ class Authentication {
     static function authenticate($u, $p) {
         $hash = $u->password;
         if (password_verify($p, $hash)) {
-            Authentication::loadProfile($u);
+            Authentification::loadProfile($u);
             return true;
         }
         else {
