@@ -22,7 +22,7 @@ class AffichageController{
     {
         $produits = produit::all();
         $vue = new VuePrincipale($produits->toArray(), $this->container);
-        $html = $vue->render(1);
+        $html = $vue->render(1,$rq);
         $rs->getBody()->write($html);
         return $rs;
     }

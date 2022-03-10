@@ -5,7 +5,6 @@ namespace custumbox\Vue;
 use \Slim\Container;
 
   define('SCRIPT_ROOT', 'http://localhost/CrazyCharlyDay/CustomBox/Ressources');
-
 class VuePrincipale{
 
     public array $tab;
@@ -15,10 +14,13 @@ class VuePrincipale{
     {
         $this->tab = $tab;
         $this->container = $container;
+        
     }
-
-    public function afficherProduits():string
+    
+    public function afficherProduits($rq):string
     {
+        $path = $rq->getUri()->getBasePath();
+        echo($path."/Ressources/Img/produits/.jpg");
         $listeProduits = $this->tab;
         foreach ($listeProduits as $l) {
             $idProduit = $l['id'];
@@ -26,7 +28,7 @@ class VuePrincipale{
                 <div class='col mb-5'>
                     <div class='card h-100'>
                         <!-- Product image-->
-                        <img class='card-img-top' src='$root/Img/produits/$l[id].jpg' alt='...' />
+                        <img class='card-img-top' src=$path/Ressources/Img/produits/$idProduit.jpg alt='...' />
                         <!-- Product details-->
                         <div class='card-body p-4'>
                             <div class='text-center'>
@@ -49,12 +51,12 @@ class VuePrincipale{
         return $content;
     }
 
-    public function render($selecteur)
+    public function render($selecteur,$rq)
     {
          switch ($selecteur) {
               case 1:
               {
-                   $content = $this->afficherProduits();
+                   $content = $this->afficherProduits($rq);
                    break;
               }
 
