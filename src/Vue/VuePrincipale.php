@@ -25,9 +25,10 @@ class VuePrincipale{
     {
         $path = $rq->getUri()->getBasePath();
         $listeProduits = $this->tab;
+         $content = "";
         foreach ($listeProduits as $l) {
             $idProduit = $l['id'];
-            $content = "";
+
                 $content .= "
                 <div class='col mb-5'>
                     <div class='card h-100'>
