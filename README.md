@@ -2,8 +2,8 @@
 
 UwU Gang
 
-LEBLANC Lilian
-JAROSZ Léa
-CHEVALEYRE Antoine
-PRILIERE Justine
-MAION Mathieu
+- LEBLANC Lilian
+- JAROSZ Léa
+- CHEVALEYRE Antoine
+- PRULIERE Justine
+- MAION Mathieu
