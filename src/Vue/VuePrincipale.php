@@ -121,13 +121,24 @@ class VuePrincipale{
                         </div>
                     </div>
                 </section>
+                
+                <!-- CustomBox -->
+        <section class='bg-dark py-5' >
+            <div class='container px-4 px-lg-5 my-5'>
+                <div class='text-center text-white'>
+                    <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>CustomBox</h1>
+                    <p class='lead fw-normal text-white-50 mb-0'>Composez votre box personnalisée avec nos produits <br>pour vous ou pour offrir.</p>
+                    <br><button type='button' class='btn btn-dark'>Créez votre box!</button>
+                </div>
+            </div>
+        </section>
 
         <!-- Produits -->
-                <section class='bg-dark py-5' >
+                <section class='bg-white py-5' >
                     <div class='container px-4 px-lg-5 my-5'>
-                        <div class='text-center text-white'>
-                            <h1 class='display-4 fw-bolder' style='text-decoration: underline #E77441'>Produits</h1>
-                            <p class='lead fw-normal text-white-50 mb-0'>Découvrez nos produits créés grâce à des matériaux de récup <br>ou proposés à la donation.</p>
+                        <div class='text-center text-dark'>
+                            <h1 class='display-4 fw-bolder' style='text-decoration: underline #47ACA4'>Produits</h1>
+                            <p class='lead fw-normal text-dark-50 mb-0'>Découvrez nos produits créés grâce à des matériaux de récup <br>ou proposés à la donation.</p>
                             <!-- Section-->
                                     <section class='py-5'>
                                         <div class='container px-4 px-lg-5 mt-5'>
@@ -139,8 +150,8 @@ class VuePrincipale{
                         </div>
                     </div>
                 </section>
-
-<!-- Footer-->
+                
+         <!-- Footer-->
         <footer class='py-5 bg-dark'>
             <div class='container'><p class='m-0 text-center text-white'>IUT CHARLEMAGNE <br>&copy; Chevaleyre - Pruliere - Maion - Leblanc - Jarosz</p></div>
         </footer>
